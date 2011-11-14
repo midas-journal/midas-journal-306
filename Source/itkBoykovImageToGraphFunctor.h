@@ -97,9 +97,9 @@ public:
     { return this->GetSinkDataTerm( idx ) - this->GetSourceDataTerm( idx ); }
   virtual void NormalizeGraph( NodeImageType *, OutputGraphType * );
 
-  NodeWeightType GetSourceDataTerm( IndexType );
-  NodeWeightType GetSinkDataTerm( IndexType );
-  EdgeWeightType GetSmoothnessTerm( IndexType idx1, IndexType idx2 )
+  virtual NodeWeightType GetSourceDataTerm( IndexType );
+  virtual NodeWeightType GetSinkDataTerm( IndexType );
+  virtual EdgeWeightType GetSmoothnessTerm( IndexType idx1, IndexType idx2 )
     { return this->GetEdgeWeight( idx1, idx2 ); }
 
   /** 
