@@ -34,10 +34,11 @@ namespace itk
 template<typename TInputImage, typename TGraphTraits, typename TClassifiedImage>
 BoykovAlphaExpansionMRFImageFilter<TInputImage, TGraphTraits, TClassifiedImage>
 ::BoykovAlphaExpansionMRFImageFilter()
+  : m_NumberOfIterations(0)
 {
   this->SetNumberOfClasses( 2 );
   this->m_RandomizeInitialLabeling = false;
-  this->m_MaximumNumberOfIterations = 10;
+  this->SetMaximumNumberOfIterations(10);
   this->m_Indices.clear();
 }
 
@@ -87,7 +88,7 @@ BoykovAlphaExpansionMRFImageFilter<TInputImage, TGraphTraits, TClassifiedImage>
 
   this->m_NumberOfIterations = 0;
   while( this->m_CurrentEnergy < E &&
-    this->m_NumberOfIterations++ < this->m_MaximumNumberOfIterations )
+    this->m_NumberOfIterations++ < this->GetMaximumNumberOfIterations() )
     {
     itkDebugMacro( "Iteration Number = " << this->m_NumberOfIterations );
     for( unsigned int i = 1; i <= this->GetNumberOfClasses(); i++ )

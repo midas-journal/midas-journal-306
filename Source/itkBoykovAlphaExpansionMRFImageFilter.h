@@ -204,7 +204,6 @@ private:
    * Should be 'protected' in MRF base class?
    */
   unsigned int m_NumberOfIterations;
-  unsigned int m_MaximumNumberOfIterations;
 };  // end of class
 
 } // end namespace itk
